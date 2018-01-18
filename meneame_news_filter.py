@@ -2,6 +2,7 @@
 import urllib2
 from bs4 import BeautifulSoup
 import webbrowser
+import unidecode
 
 myFile = open('to_read.html', 'w')
 
@@ -24,10 +25,12 @@ def read_and_select (quote_page):
 
 	with open("words.txt") as f:
 	    content = f.readlines()
-	words = [x.strip() for x in content] 
+
+	words = [unidecode.unidecode(x.decode('utf-8').lower().strip()) for x in content] 
 
 	for i in range(len(all_stories)):
-		title_lower_case = all_stories[i]["title"].lower()
+		title_lower_case = unidecode.unidecode(all_stories[i]["title"].lower())
+
 		count = 0
 		for word in words:
 			if word in title_lower_case:
