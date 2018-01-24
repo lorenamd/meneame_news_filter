@@ -49,7 +49,7 @@ def read_and_select (quote_page):
 			myFile.write('<br>')
 			myFile.write(summary)
 			myFile.write('<br>')
-			myFile.write('<a href="url">')
+			myFile.write('<a href={}>'.format(url))
 			myFile.write(url)
 			myFile.write('</a>')
 			myFile.write('<br><br><br><br>')
